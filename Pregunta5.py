@@ -16,12 +16,12 @@ df_2020['etiqueta'] = '2020'
 
 #Se pasa a datetime la fecha
 df_2023['time'] = pd.to_datetime(df_2023['time'])
-#df_2020['time'] = pd.to_datetime(df_2020['time'])
+df_2020['time'] = pd.to_datetime(df_2020['time'])
 
 #seleccionamos solo los datos de abril
-df_abril_2023 = df_2023[df_2023['time'].dt.month == 4]
-print(df_2023)
-#df_abril_2020 = df_2020[df_2020['time'].dt.month == 4]
+df_abril_2023 = df_2023[df_2023['time'].dt.month == 3]
+
+df_abril_2020 = df_2020[df_2020['time'].dt.month == 3]
 
 #Concatenamos los dataframe
 #df = pd.concat([df_abril_2020,df_abril_2023])
@@ -30,11 +30,10 @@ print(df_2023)
 
 #GRAFICO
 
-
-#sns.kdeplot(data=df_abril_2023, x='prom', label='2023')
-#sns.kdeplot(data=df_abril_2020, x='prom', label='2020')
-#plt.xlabel('Temperatura (°C)')
-#plt.ylabel('Densidad de probabilidad')
-#plt.title('Promedio de la temperatura en la Región Metropolitana en abril')
-#plt.legend()
-#plt.show() 
+sns.kdeplot(data=df_abril_2023, x='prom', label='2023')
+sns.kdeplot(data=df_abril_2020, x='prom', label='2020')
+plt.xlabel('Temperatura (°C)')
+plt.ylabel('Densidad de probabilidad')
+plt.title('Promedio de la temperatura en la Región Metropolitana en marzo')
+plt.legend()
+plt.show() 
